@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/CustomTabText</item>
+        <item name="tabBackground">@drawable/tab_background</item>
+        <item name="tabTextColor">@color/neutral_light</item>
+        <item name="tabSelectedTextColor">@color/primary_dark_blue</item>
+        <item name="tabIndicatorColor">@color/primary_dark_blue</item>
+    </style>
+
+    <style name="CustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/segoe_ui</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="CustomSearchText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary_dark_blue</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/segoe_ui</item>
+    </style>
+
+
+    <style name="BottomNavigationViewStyle">
+        <item name="android:background">@color/white</item>
+        <item name="android:theme">@style/BottomNavigationViewTheme</item>
+    </style>
+
+    <style name="BottomNavigationViewTheme">
+        <item name="colorPrimary">@color/primary_dark_blue</item>
+        <item name="colorControlNormal">@color/primary_black</item>
+    </style>
+
+
+</resources>

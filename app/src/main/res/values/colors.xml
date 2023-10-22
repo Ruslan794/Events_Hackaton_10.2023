@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="main_text">#333333</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="note_blue">#007ACC</color>
+    <color name="task_red">#D32F2F</color>
+    <color name="main_blue">#0098E6</color>
+    <color name="fab_blue">#00A9F9</color>
+
+
+    <color name="neutral_light">#99AAE1</color>
+    <color name="purple_1">#DFEBFF</color>
+    <color name="grey_1">#E2E3E6</color>
+    <color name="grey_text">#898989</color>
+    <color name="primary_dark_blue">#133B6B</color>
+    <color name="background_light">#F8FBFF</color>
+    <color name="grey_primary">#6B7280</color>
+    <color name="pink">#C97E8B</color>
+    <color name="primary_black">#292D32</color>
+    <color name="green">#409159</color>
+    <color name="grey_2">#5E6D80</color>
+    <color name="grey_3">#9AA8B8</color>
+
+
+
+</resources>
