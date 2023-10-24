@@ -51,8 +51,8 @@ class EventDetailsFragment : Fragment() {
             image.load(it.image)
             name.text = it.name
             location.text = "Location: ${it.location}"
-            date.text = "Date: ${it.dateAndTime.format(MyDateTimeFormatters.dateShort)}"
-            time.text = "Time: ${it.dateAndTime.format(MyDateTimeFormatters.time)}"
+            date.text = "Date: ${it.dateAndTime?.format(MyDateTimeFormatters.dateShort)}"
+            time.text = "Time: ${it.dateAndTime?.format(MyDateTimeFormatters.time)}"
             description.text = it.description
         }
 

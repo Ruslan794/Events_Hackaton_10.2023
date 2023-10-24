@@ -42,7 +42,7 @@ class EventListAdapter(private var eventList: MutableList<Event>) :
             if (!item.verified) isVerified.visibility = View.INVISIBLE
             creator.text = item.creator
             name.text = item.name
-            date.text = item.dateAndTime.format(MyDateTimeFormatters.dateShort)
+            date.text = item.dateAndTime?.format(MyDateTimeFormatters.dateShort)
             poster.load(item.image)
             participantsNumber.text = item.participants.toString()
 

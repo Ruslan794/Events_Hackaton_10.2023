@@ -18,6 +18,7 @@ import com.riedera.events.domain.models.Event
 import com.riedera.events.presentation.adapters.ClubListAdapter
 import com.riedera.events.presentation.adapters.EventListAdapter
 import com.riedera.events.presentation.viewModels.HomeViewModel
+import com.riedera.events.repository.DataExamples
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(), EventListAdapter.OnEventClickListener,
@@ -53,12 +54,18 @@ class HomeFragment : Fragment(), EventListAdapter.OnEventClickListener,
 
         vm.eventsList.observe(viewLifecycleOwner) {
             eventsAdapter.updateData(it)
+            if (it.isNotEmpty()) DataExamples.saveEvents(requireContext(), it)
+            else eventsAdapter.updateData(DataExamples.getEvents(requireContext()))
+
             changeEmptyListTextState(eventsAdapter.isEmpty())
         }
 
         vm.clubsList.observe(viewLifecycleOwner) {
             clubsAdapter.updateData(it)
-            changeEmptyListTextState(eventsAdapter.isEmpty())
+            if (it.isNotEmpty()) DataExamples.saveClubs(requireContext(), it)
+            else clubsAdapter.updateData(DataExamples.getClubs(requireContext()))
+
+            changeEmptyListTextState(clubsAdapter.isEmpty())
         }
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -87,11 +94,13 @@ class HomeFragment : Fragment(), EventListAdapter.OnEventClickListener,
                 return false
             }
 
+
             override fun onQueryTextChange(newText: String?): Boolean {
 
                 if (rv.adapter is EventListAdapter) {
-                    val filteredList =
-                        vm.eventsList.value?.filter { it.name.lowercase().contains(newText?.trim()?.lowercase().toString()) }
+                    val filteredList = vm.eventsList.value?.filter {
+                        it.name.lowercase().contains(newText?.trim()?.lowercase().toString())
+                    }
                     if (filteredList != null) {
                         eventsAdapter.updateData(filteredList)
                     }
@@ -99,8 +108,9 @@ class HomeFragment : Fragment(), EventListAdapter.OnEventClickListener,
                 }
 
                 if (rv.adapter is ClubListAdapter) {
-                    val filteredList =
-                        vm.clubsList.value?.filter { it.name.lowercase().contains(newText?.trim()?.lowercase().toString()) }
+                    val filteredList = vm.clubsList.value?.filter {
+                        it.name.lowercase().contains(newText?.trim()?.lowercase().toString())
+                    }
                     if (filteredList != null) {
                         clubsAdapter.updateData(filteredList)
                     }
